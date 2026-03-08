@@ -203,3 +203,9 @@ such as BIS capital ratios and net interest margins (NIM).
 
 - Altman, E. I. (1968). Financial Ratios, Discriminant Analysis and the Prediction of Corporate Bankruptcy. *Journal of Finance*, 23(4), 589–609.
 - DART OpenAPI Documentation: https://opendart.fss.or.kr
+
+---
+
+## 📄 License
+
+MIT License © 2026 [hazel-jeon](https://github.com/hazel-jeon)
