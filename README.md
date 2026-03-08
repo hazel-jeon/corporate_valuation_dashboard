@@ -93,6 +93,18 @@ Implemented to complement the Z-Score model's limitations.
   - Operating Margin < 0%
   - Operating Cash Flow < 0
 
+### 3. Model Performance
+
+| Model | F1 Score | AUC |
+|-------|----------|-----|
+| Random Forest | 0.400 ± 0.490 | **0.971 ± 0.042** |
+| Gradient Boosting | 0.467 ± 0.400 | 0.886 ± 0.194 |
+
+> The Random Forest classifier achieved an AUC of **0.971** in Stratified 5-Fold cross-validation,
+> demonstrating strong discriminative power in identifying financially distressed firms.  
+> The lower F1 score is expected given class imbalance (few distressed firms in the dataset),
+> while AUC more accurately reflects the model's ranking ability across all thresholds.
+
 ---
 
 ## Data Coverage
@@ -167,7 +179,8 @@ are classified in the distress zone despite strong underlying business performan
 **2. Synthetic Labeling**  
 In the absence of actual bankruptcy event data for Korean listed companies,  
 distress labels were generated using rule-based financial thresholds.  
-Class imbalance (few distressed firms) causes the ML model to predict conservatively.
+Class imbalance (few distressed firms) causes the ML model to predict conservatively,
+resulting in lower F1 scores despite high AUC.
 
 **3. Financial Sector Exclusion**  
 Banks, securities firms, and insurers were excluded due to structural differences  
@@ -206,6 +219,6 @@ such as BIS capital ratios and net interest margins (NIM).
 
 ---
 
-## 📄 License
+## License
 
 MIT License © 2026 [hazel-jeon](https://github.com/hazel-jeon)

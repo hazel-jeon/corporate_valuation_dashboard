@@ -6,6 +6,7 @@ import numpy as np
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import cross_val_score, StratifiedKFold
+from sklearn.metrics import roc_auc_score, roc_curve
 from sklearn.metrics import classification_report
 import warnings
 warnings.filterwarnings("ignore")
@@ -192,13 +193,20 @@ def train_models(X, y):
 
     for name, model in models.items():
         scores = cross_val_score(model, X_scaled, y, cv=cv, scoring="f1")
+        auc_scores = cross_val_score(model, X_scaled, y, cv=cv, scoring="roc_auc")      # AUC 점수 계산
         model.fit(X_scaled, y)
+        y_prob = model.predict_proba(X_scaled)[:, 1]  
+        fpr, tpr, _ = roc_curve(y, y_prob)             # ROC 곡선 계산
         results[name] = {
             "model": model,
             "f1_mean": scores.mean(),
             "f1_std": scores.std(),
+            "auc_mean": auc_scores.mean(),
+            "auc_std": auc_scores.std(),
+            "fpr": fpr,                                 
+            "tpr": tpr,                                 
         }
-        print(f"  {name}: F1 = {scores.mean():.3f} ± {scores.std():.3f}")
+        print(f"  {name}: F1 = {scores.mean():.3f} ± {scores.std():.3f} | AUC = {auc_scores.mean():.3f} ± {auc_scores.std():.3f}")
 
     # 최고 성능 모델 선택
     best_name = max(results, key=lambda k: results[k]["f1_mean"])
