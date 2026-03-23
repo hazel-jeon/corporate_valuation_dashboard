@@ -1,4 +1,4 @@
-# 📊 Corporate Valuation & Bankruptcy Risk Prediction Dashboard
+# Corporate Valuation & Bankruptcy Risk Prediction Dashboard
 
 > **Korean Listed Company Financial Analysis Platform**  
 > An end-to-end financial analysis system covering 42 KOSPI-listed companies,  
@@ -120,11 +120,11 @@ Implemented to complement the Z-Score model's limitations.
 
 | Page | Content |
 |------|---------|
-| 🏠 Overview | KPI summary, Z-Score distribution, profitability vs. stability bubble chart |
-| 🏆 Z-Score Ranking | Full ranking table, Z-Score component decomposition chart |
-| 📈 Financial Trends | Multi-company time series, 4-metric simultaneous comparison |
-| 🗂️ Sector Comparison | Sector box plots, radar chart |
-| 🔍 Company Scorecard | Individual company deep-dive, 5-year financial summary |
+| Overview | KPI summary, Z-Score distribution, profitability vs. stability bubble chart |
+| Z-Score Ranking | Full ranking table, Z-Score component decomposition chart |
+| Financial Trends | Multi-company time series, 4-metric simultaneous comparison |
+| Sector Comparison | Sector box plots, radar chart |
+| Company Scorecard | Individual company deep-dive, 5-year financial summary |
 
 ---
 
